@@ -1,0 +1,22 @@
+{
+  "mappings": [
+    {
+      "name": "[LEGACY] GET /api/orders/{id}",
+      "request": {
+        "method": "GET",
+        "url": "/api/orders/old1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "orderId": "LEGACY-001",
+          "status": "OLD_FORMAT",
+          "total": 0.0
+        }
+      }
+    }
+  ]
+}
