@@ -13,6 +13,7 @@ public class SearchApiStubs extends BaseStub {
     @Override
     protected void registerStubs() {
         searchByTypeProduct();
+        searchByeNewProductType();
         searchByTypeService();
         searchByCategoryType();
         updateItemStatusActive();
@@ -51,6 +52,27 @@ public class SearchApiStubs extends BaseStub {
                                 .withBody("""
                         {
                           "type": "product",
+                          "category": "electronics",
+                          "sort": "price",
+                          "results": [
+                            { "id": "P001", "name": "Laptop",  "price": 999.99 },
+                            { "id": "P002", "name": "Monitor", "price": 299.99 }
+                          ],
+                          "total": 2
+                        }
+                        """))
+        );
+    }
+
+    private void searchByeNewProductType() {
+        server.stubFor(
+                get(urlEqualTo("/api/search?category=electronics&sort=price&type=newProduct"))    // ← differs here
+                        .willReturn(aResponse()
+                                .withStatus(200)
+                                .withHeader("Content-Type", "application/json")
+                                .withBody("""
+                        {
+                          "type": "newProduct",
                           "category": "electronics",
                           "sort": "price",
                           "results": [
