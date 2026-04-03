@@ -16,7 +16,7 @@ public class WireMockRunner {
 
     private static final int PORT = 8080;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         WireMockServer server = new WireMockServer(
             WireMockConfiguration.options()
@@ -25,7 +25,7 @@ public class WireMockRunner {
                 .notifier(new ConsoleNotifier(true))
         );
 
-        server.start();
+
         log.info("=================================================");
         log.info("  WireMock Hybrid Server started on port {}", PORT);
         log.info("  JSON stubs  : loaded from resources/mappings/");
@@ -37,13 +37,7 @@ public class WireMockRunner {
         new ProductsApiStubs(server).register();
         new SearchApiStubs(server).register();
 
+        server.start();
         log.info("All Java stubs registered successfully.");
-
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            log.info("Shutting down WireMock server...");
-            server.stop();
-        }));
-
-        Thread.currentThread().join();
     }
 }
