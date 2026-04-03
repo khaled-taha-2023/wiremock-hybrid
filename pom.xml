@@ -32,6 +32,12 @@
             <version>${wiremock.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+
         <!-- ===== Logging ===== -->
         <dependency>
             <groupId>org.slf4j</groupId>
