@@ -1,14 +1,14 @@
 {
-  "name": "[LEGACY] GET /api/orders/{id}",
+  "name": "[LEGACY] GET /api/users/{id}",
   "request": {
     "method": "GET",
-    "url": "/api/orders/old1"
+    "url": "/api/users/old1"
   },
   "response": {
     "status": 200,
     "headers": {
       "Content-Type": "application/json"
     },
-    "bodyFileName": "orders-api.json"
+    "bodyFileName": "user-api.json"
   }
 }

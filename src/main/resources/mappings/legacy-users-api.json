@@ -1,40 +1,14 @@
 {
-  "mappings": [
-    {
-      "name": "[LEGACY] GET /api/users/{id}",
-      "request": {
-        "method": "GET",
-        "url": "/api/users/old1"
-      },
-      "response": {
-        "status": 200,
-        "headers": {
-          "Content-Type": "application/json"
-        },
-        "jsonBody": {
-          "id": 1,
-          "name": "Old Legacy User",
-          "email": "legacy@example.com",
-          "status": "active"
-        }
-      }
+  "name": "[LEGACY] POST /api/users",
+  "request": {
+    "method": "POST",
+    "url": "/api/users"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
     },
-    {
-      "name": "[LEGACY] POST /api/users",
-      "request": {
-        "method": "POST",
-        "url": "/api/users"
-      },
-      "response": {
-        "status": 201,
-        "headers": {
-          "Content-Type": "application/json"
-        },
-        "jsonBody": {
-          "id": 1,
-          "message": "Legacy user created"
-        }
-      }
-    }
-  ]
+    "bodyFileName": "users-api.json"
+  }
 }
