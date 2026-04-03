@@ -45,22 +45,25 @@ public class SearchApiStubs extends BaseStub {
 
     private void searchByTypeProduct() {
         server.stubFor(
-                get(urlEqualTo("/api/search?category=electronics&sort=price&type=product"))    // ← differs here
+                get(urlPathEqualTo("/api/search"))
+                        .withQueryParam("category", equalTo("electronics"))
+                        .withQueryParam("sort",     equalTo("price"))
+                        .withQueryParam("type",     equalTo("product"))
                         .willReturn(aResponse()
                                 .withStatus(200)
                                 .withHeader("Content-Type", "application/json")
                                 .withBody("""
-                        {
-                          "type": "product",
-                          "category": "electronics",
-                          "sort": "price",
-                          "results": [
-                            { "id": "P001", "name": "Laptop",  "price": 999.99 },
-                            { "id": "P002", "name": "Monitor", "price": 299.99 }
-                          ],
-                          "total": 2
-                        }
-                        """))
+                    {
+                      "type": "product",
+                      "category": "electronics",
+                      "sort": "price",
+                      "results": [
+                        { "id": "P001", "name": "Laptop",  "price": 999.99 },
+                        { "id": "P002", "name": "Monitor", "price": 299.99 }
+                      ],
+                      "total": 2
+                    }
+                    """))
         );
     }
 
