@@ -20,16 +20,14 @@ public class WireMockRunner {
                 .usingFilesUnderClasspath("src/main/resources")
                 .notifier(new ConsoleNotifier(true))
         );
+        registerStubs(server);
+        server.start();
 
         log.info("=================================================");
         log.info("  WireMock Hybrid Server started on port {}", PORT);
         log.info("  JSON stubs  : loaded from resources/mappings/");
-        log.info("  Java stubs  : registered below with priority 1");
+        log.info("  Java stubs  : registered");
         log.info("=================================================");
-
-        registerStubs(server);
-        server.start();
-        log.info("All Java stubs registered successfully.");
     }
 
     private static void registerStubs(WireMockServer server) {
